@@ -13,12 +13,11 @@ for (let index = 0; index < alunos.length; index ++) {
 }
 */
 
-for (let i = 1; i <= 31; i++) {
-    dia.innerHTML += `<option>${i}</option>`;
-}
 
-for (let i = 1; i <= 12; i++) {
-    mes.innerHTML += `<option>${i}</option>`;
+
+let meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+for (let i = 0; i < meses.length; i++) {
+    mes.innerHTML += `<option>${meses[i]}</option>`;
 }
 
 for (let i = new Date().getFullYear(); i >= new Date().getFullYear() - 50; i--) {
@@ -27,8 +26,32 @@ for (let i = new Date().getFullYear(); i >= new Date().getFullYear() - 50; i--) 
 
 /*let dia = document.getElementById(dia);
 let mes = document.getElementById(mes);
-let ano = document.getElementById(ano);*/
+let ano = document.getElementById(ano);
+dia.innerHTML += ''; por que isso não funcionou?*/
 
-function verificar(){
-    alert(`Quem nasceu em ${dia.value}/${mes.value}/${ano.value}, nasceu em ano bissexto`);
+function verificarMes() {
+    dia.innerHTML = '';
+    if (mes.value === 'Fevereiro') {
+        for (let i = 1; i <= 29; i++) {
+            dia.innerHTML += `<option value="${i}">${i}</option>`;
+        }
+    }
+    else {
+        for (let j = 1; j <= 31; j++) {
+            dia.innerHTML += `<option value="${j}">${j}</option>`;
+        }
+    }
+}
+/*Teve que adicionar uma primeira opção de Selecionar mes para poder ler o mes de janeiro, queria entender melhor o porquê*/
+
+function verificar() {
+    const divisivelPor4 = ano.value % 4 === 0;
+    const divisivelPor100 = ano.value % 100 === 0;
+    const divisivelPor400 = ano.value % 400 === 0;
+    let bisexxto = divisivelPor4 && (!divisivelPor100 || divisivelPor400);
+
+    let bisexxtoPositivo = 'nasceu';
+    let bisexxtoNegativo = 'não nasceu';
+
+    bisexxto ? alert(`Quem nasceu em ${dia.value} de ${mes.value} de ${ano.value}, ${bisexxtoPositivo} em ano bissexto`) : alert(`Quem nasceu em ${dia.value}/${mes.value}/${ano.value}, ${bisexxtoNegativo} em ano bissexto`);
 }

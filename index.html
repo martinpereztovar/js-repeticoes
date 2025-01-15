@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript - Estruturas de repetição</title>
 </head>
+
 <body>
     <div>
         <label for="dia">Dia</label>
         <select name="" id="dia">
+            <option value="" name="default-message">Selecione o mes e depois o dia</option>
         </select>
     </div>
     <div>
         <label for="mes">Mes</label>
-        <select name="" id="mes">
+        <select name="" id="mes" onChange="verificarMes()">
+            <option value="" name="message">Selecione o mes e depois o dia</option>
         </select>
     </div>
     <div>
@@ -27,4 +31,5 @@
 
     <script src="index.js"></script>
 </body>
+
 </html>
