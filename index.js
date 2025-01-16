@@ -33,12 +33,12 @@ function verificarMes() {
     dia.innerHTML = '';
     if (mes.value === 'Fevereiro') {
         for (let i = 1; i <= 29; i++) {
-            dia.innerHTML += `<option value="${i}">${i}</option>`;
+            dia.innerHTML += `<option>${i}</option>`;
         }
     }
     else {
         for (let j = 1; j <= 31; j++) {
-            dia.innerHTML += `<option value="${j}">${j}</option>`;
+            dia.innerHTML += `<option>${j}</option>`;
         }
     }
 }
